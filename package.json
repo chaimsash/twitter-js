@@ -1,7 +1,7 @@
 {
   "name": "twitter-js",
   "version": "1.0.0",
-  "description": "",
+  "description": "Twitter client JS for fullstack workshop",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
