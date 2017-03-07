@@ -11,7 +11,6 @@ nunjucks.configure('views', {
     noCache: true
 });
 
-
 // WTF?
 // TYING FILE EXTENSION TO THE RENDERING ENGINE
 app.set('view engine', 'html');
@@ -19,14 +18,24 @@ app.set('view engine', 'html');
 //     'html', nunjucks.render
 // );
 
-app.use('/', routes);
 
 //logging middlewear extra credit
-// function logger(){
-//   [].prototype.slice.call(arguments).forEach(function(x){
-//     console.log(x);
-//   });
-// }
+function logger() {
+    Array.prototype.slice.call(arguments).forEach(function(x) {
+        console.log(x);
+    });
+}
+
+app.use(function(req, res, next) {
+    logger(req.method + ' / ' + res.statusCode + ' ' + req.url);
+    next();
+});
+
+
+
+
+app.use('/', routes);
+
 app.listen(3000, function() {
-    console.log('server listening');
+    logger('server listening');
 });
