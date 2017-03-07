@@ -23,15 +23,15 @@ const randArrayEl = function(arr) {
 
 // Returns fake combo name
 const getFakeName = function() {
-  const fakeFirsts = ['Nimit', 'David', 'Shanna', 'Emily', 'Scott', 'Karen', 'Ben', 'Dan', 'Ashi', 'Kate', 'Omri', 'Gabriel', 'Joe', 'Geoff'];
-  const fakeLasts = ['Hashington', 'Stackson', 'McQueue', 'OLogn', 'Ternary', 'Claujure', 'Dunderproto', 'Binder', 'Docsreader', 'Ecma'];
+  const fakeFirsts = ['Doc', 'Dopey', 'Bashful', 'Grumpy', 'Sneezy', 'Sleepy', 'Happy', 'Snow', 'Ashi', 'Kate', 'Omri', 'Gabriel', 'Joe', 'Geoff'];
+  const fakeLasts = ['White', 'Stackson', 'McQueue', 'OLogn', 'Ternary', 'Claujure', 'Dunderproto', 'Binder', 'Docsreader', 'Ecma'];
   return randArrayEl(fakeFirsts) + " " + randArrayEl(fakeLasts);
 };
 
 // Generate a random tweet from adjectives
 const getFakeTweet = function() {
   const awesome_adj = ['awesome', 'breathtaking', 'amazing', 'funny', 'sweet', 'cool', 'wonderful', 'mindblowing', 'impressive'];
-  return "Fullstack Academy is " + randArrayEl(awesome_adj) + "! The instructors are just so " + randArrayEl(awesome_adj) + ". #fullstacklove #codedreams";
+  return "Hi ho, hi ho, its " + randArrayEl(awesome_adj) + "! The instructors are just so " + randArrayEl(awesome_adj) + ". #fullstacklove #codedreams";
 };
 
 module.exports = { add: add, list: list, find: find };
