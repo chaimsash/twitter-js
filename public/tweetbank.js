@@ -1,19 +1,19 @@
 const _ = require('lodash');
 
-var data = [];
+var tweets = [];
 
 function add (name, content) {
-  data.push({name: name, content: content });
+  tweets.push({name: name, content: content });
 }
 
 // .cloneDeep recursively clones a value and returns a shallow (new) copy
 function list () {
-  return _.cloneDeep(data);
+  return _.cloneDeep(tweets);
 }
 
 
 function find(properties) {
-  return _.cloneDeep(_.filter(data, properties));
+  return _.cloneDeep(_.filter(tweets, properties));
 }
 
 // Utility function for getting an array element via index

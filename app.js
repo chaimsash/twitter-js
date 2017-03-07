@@ -18,8 +18,7 @@ app.set('view engine', 'html');
 //     'html', nunjucks.render
 // );
 
-app.use('/', routes)
-app.use('/static', express.static('public'));
+app.use('/', routes);
 
 //logging middlewear extra credit
 // function logger(){
