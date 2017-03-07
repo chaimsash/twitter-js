@@ -1,6 +1,7 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
 const routes = require('./routes');
+const path = require('path');
 const app = express(); // creates an instance of an express application
 const bodyParser = require('body-parser');
 
@@ -11,14 +12,6 @@ nunjucks.configure('views', {
     noCache: true
 });
 
-// WTF?
-// TYING FILE EXTENSION TO THE RENDERING ENGINE
-app.set('view engine', 'html');
-// app.engine(
-//     'html', nunjucks.render
-// );
-
-
 //logging middlewear extra credit
 function logger() {
     Array.prototype.slice.call(arguments).forEach(function(x) {
@@ -26,15 +19,26 @@ function logger() {
     });
 }
 
+
+app.use(express.static(path.join(__dirname, '/public')));
+// Imports router from index.js as middleware!
+app.use('/', routes);
+// WTF?
+// TYING FILE EXTENSION TO THE RENDERING ENGINE
+app.set('view engine', 'html');
+app.engine(
+    'html', nunjucks.render
+);
+
+
 app.use(function(req, res, next) {
-    logger(req.method + ' / ' + res.statusCode + ' ' + req.url);
+    res.on('finish', function() {
+        logger(req.method + ' / ' + res.statusCode + ' ' + req.url);
+    });
     next();
 });
 
 
-
-
-app.use('/', routes);
 
 app.listen(3000, function() {
     logger('server listening');
