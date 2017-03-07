@@ -18,9 +18,8 @@ app.set('view engine', 'html');
 //     'html', nunjucks.render
 // );
 
-app.listen(3000, function() {
-    console.log('server listening');
-});
+app.use('/', routes)
+app.use('/static', express.static('public'));
 
 //logging middlewear extra credit
 // function logger(){
@@ -28,5 +27,6 @@ app.listen(3000, function() {
 //     console.log(x);
 //   });
 // }
-
-app.use('/', routes)
+app.listen(3000, function() {
+    console.log('server listening');
+});
