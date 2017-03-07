@@ -2,8 +2,8 @@ const _ = require('lodash');
 
 var tweets = [];
 
-function add (name, content) {
-  tweets.push({name: name, content: content });
+function add (name, content, id) {
+  tweets.push({name: name, content: content, id: id });
 }
 
 // .cloneDeep recursively clones a value and returns a shallow (new) copy
@@ -38,5 +38,5 @@ module.exports = { add: add, list: list, find: find };
 
 // On add property of exports, we add ten fake tweets. When add is invoked, we get ten fake tweet objects
 for (let i = 0; i < 10; i++) {
-  module.exports.add( getFakeName(), getFakeTweet() );
+  module.exports.add( getFakeName(), getFakeTweet(), i );
 }
