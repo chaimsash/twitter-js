@@ -2,6 +2,7 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 const routes = require('./routes');
 const app = express(); // creates an instance of an express application
+const bodyParser = require('body-parser');
 
 // Nunjucks configure
 nunjucks.configure('views', {
